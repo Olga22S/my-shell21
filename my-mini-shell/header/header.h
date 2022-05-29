@@ -6,7 +6,7 @@
 /*   By: Tiger Agda <tagda@student.21-school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:32:08 by Tiger Agda        #+#    #+#             */
-/*   Updated: 2022/05/29 16:41:32 by Tiger Agda       ###   ########.fr       */
+/*   Updated: 2022/05/29 23:40:11 by Tiger Agda       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@
 # include <termios.h>
 
 # include "../libft/libft.h"
+
+# define SHLVL_DEFAULT 2
+# define TMP_PATH "/tmp"
+# define TMP_FILE "/_tmpfile_shell"
+# define ER_DUP 10
 
 typedef struct s_environment_var
 {
@@ -60,5 +65,7 @@ typedef struct s_shell
 void	ft_parse_env_vars(t_env_vars **env_vars, char **env);
 void	ft_add_env_var(t_env_vars **envs, char *str);
 void	ft_remove_env_var(t_env_vars **envs, char *key);
-
+char	*ft_search_env_var(t_env_vars **envs, char *key);
+void	ft_free_envs_vars(t_env_vars **envs);
+//void	ft_update_shlvl(t_shell *shell, t_token *token, t_envs_lst **env)//env_util2
 #endif
